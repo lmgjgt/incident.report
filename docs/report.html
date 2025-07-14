@@ -1,79 +1,101 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>نموذج التبليغ</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    body {
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
       background: url('logo.png') no-repeat center center fixed;
-      background-size: 200px;
-      background-color: #f9f9f9;
-      font-family: 'Tahoma', sans-serif;
-      color: #000;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #2f8f4e;
     }
-    h1 {
-      color: #2E8B57;
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.8);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+    .form-container {
+      background-color: white;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      color: #2f8f4e;
+    }
+    h3 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-align: center;
+      color: #2f8f4e;
     }
     label {
-      font-weight: bold;
-      color: #000;
+      font-weight: 600;
     }
-    .btn-custom {
-      background-color: #2E8B57;
+    .btn-submit {
+      background-color: #2f8f4e;
+      border-color: #2f8f4e;
+      width: 100%;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 12px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
       color: white;
     }
-    .btn-custom:hover {
-      background-color: #256f48;
+    .btn-submit:hover {
+      background-color: #26733e;
+      border-color: #26733e;
     }
   </style>
 </head>
-<body class="p-4">
-  <div class="container bg-white bg-opacity-75 p-4 rounded shadow-sm">
-    <h1 class="text-center mb-4">نموذج التبليغ عن الحوادث الأمنية</h1>
-    <form action="success.html" method="get">
-
-      <div class="mb-3">
-        <label for="name">اسم الموظف</label>
-        <input type="text" id="name" name="name" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="department">القسم</label>
-        <input type="text" id="department" name="department" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="incidentType">نوع الحادث</label>
-        <select id="incidentType" name="incidentType" class="form-select" required>
-          <option value="">-- اختر نوع الحادث --</option>
-          <option value="unauthorized_access">وصول غير مصرح</option>
-          <option value="data_loss">فقد بيانات</option>
-          <option value="potential_breach">اختراق محتمل</option>
-          <option value="system_issue">مشكلة في النظام</option>
-          <option value="other">أخرى</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="description">وصف الحادث</label>
-        <textarea id="description" name="description" class="form-control" rows="4" placeholder="يرجى توضيح تفاصيل الحادث..." required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label>هل تم تبليغ الإدارة؟</label><br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="reported" id="yes" value="yes" required>
-          <label class="form-check-label" for="yes">نعم</label>
+<body>
+  <div class="overlay">
+    <div class="form-container">
+      <h3>نموذج التبليغ عن حادث أمني</h3>
+      <form action="success.html" method="get">
+        <div class="mb-3">
+          <label for="name">الاسم:</label>
+          <input type="text" id="name" class="form-control" required />
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="reported" id="no" value="no" required>
-          <label class="form-check-label" for="no">لا</label>
+        <div class="mb-3">
+          <label for="department">القسم:</label>
+          <input type="text" id="department" class="form-control" required />
         </div>
-      </div>
-
-      <button type="submit" class="btn btn-custom mt-3">إرسال البلاغ</button>
-    </form>
+        <div class="mb-3">
+          <label for="incident-type">نوع الحادث:</label>
+          <select id="incident-type" class="form-select" required>
+            <option value="" disabled selected>اختر نوع الحادث</option>
+            <option value="phishing">دخول غير مصرح</option>
+            <option value="data-leak">فقد بيانات</option>
+            <option value="hacking">اختراق محتمل</option>
+            <option value="system-issue">مشكلة في النظام</option>
+            <option value="other">أخرى</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="reported">هل تم تبليغ الإدارة؟</label>
+          <select id="reported" class="form-select" required>
+            <option value="" disabled selected>اختر</option>
+            <option value="yes">نعم</option>
+            <option value="no">لا</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="incident-description">وصف الحادث:</label> 
+          <textarea id="incident-description" class="form-control" rows="4" placeholder="أكتب وصف الحادث هنا" required></textarea>
+        <button type="submit" class="btn btn-submit">إرسال البلاغ</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>
