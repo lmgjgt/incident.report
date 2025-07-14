@@ -75,12 +75,17 @@
           <label for="incident-type">نوع الحادث:</label>
           <select id="incident-type" class="form-select" required>
             <option value="" disabled selected>اختر نوع الحادث</option>
-            <option value="phishing">دخول غير مصرح</option>
+            <option value="phishing">Phishing</option>
             <option value="data-leak">فقد بيانات</option>
             <option value="hacking">اختراق محتمل</option>
             <option value="system-issue">مشكلة في النظام</option>
             <option value="other">أخرى</option>
           </select>
+        </div>
+        <!-- وصف الحادث -->
+        <div class="mb-3">
+          <label for="incident-description">وصف الحادث:</label>
+          <textarea id="incident-description" class="form-control" rows="4" placeholder="اكتب تفاصيل الحادث هنا..." required></textarea>
         </div>
         <div class="mb-3">
           <label for="reported">هل تم تبليغ الإدارة؟</label>
@@ -90,9 +95,6 @@
             <option value="no">لا</option>
           </select>
         </div>
-        <div class="mb-3">
-          <label for="incident-description">وصف الحادث:</label> 
-          <textarea id="incident-description" class="form-control" rows="4" placeholder="أكتب وصف الحادث هنا" required></textarea>
         <button type="submit" class="btn btn-submit">إرسال البلاغ</button>
       </form>
     </div>
